@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSE SkillUp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .rating-stars span {
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #d1d5db;
+    }
+    .rating-stars span.active {
+      color: #facc15;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-6 text-center shadow-md">
+    <h1 class="text-4xl font-bold">🔥 CSE SkillUp</h1>
+    <p class="text-sm mt-1">By Team CSE</p>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Course Card Template -->
+      <div class="bg-white shadow-xl rounded-xl p-6">
+        <h2 class="text-xl font-bold mb-1">🖥️ Static to Dynamic Website Development</h2>
+        <p class="text-sm text-yellow-400 font-semibold mb-2">⭐ 4.0 Rated by learners</p>
+        <ul class="list-disc list-inside text-sm text-gray-700">
+          <li>HTML, CSS, JavaScript</li>
+          <li>Intro to Web Hosting & Domains</li>
+          <li>GitHub Deployment</li>
+        </ul>
+        <div class="mt-4">
+          <button onclick="showRating(this)" class="bg-gray-700 text-white text-sm px-3 py-1 rounded-full">Rate this course</button>
+          <div class="rating-stars hidden mt-2 space-x-1">
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white shadow-xl rounded-xl p-6">
+        <h2 class="text-xl font-bold mb-1">📄 Resume & Portfolio Building</h2>
+        <p class="text-sm text-yellow-400 font-semibold mb-2">⭐ 4.0 Rated by learners</p>
+        <ul class="list-disc list-inside text-sm text-gray-700">
+          <li>ATS-Friendly Resume Templates</li>
+          <li>GitHub Portfolio Setup</li>
+          <li>Real-world Resume Tips</li>
+        </ul>
+        <div class="mt-4">
+          <button onclick="showRating(this)" class="bg-gray-700 text-white text-sm px-3 py-1 rounded-full">Rate this course</button>
+          <div class="rating-stars hidden mt-2 space-x-1">
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white shadow-xl rounded-xl p-6">
+        <h2 class="text-xl font-bold mb-1">💬 Social Skill Life for CSE</h2>
+        <p class="text-sm text-yellow-400 font-semibold mb-2">⭐ 4.0 Rated by learners</p>
+        <ul class="list-disc list-inside text-sm text-gray-700">
+          <li>Group Discussion & Presentation Skills</li>
+          <li>Communication Etiquette</li>
+          <li>Soft Skills for Engineers</li>
+        </ul>
+        <div class="mt-4">
+          <button onclick="showRating(this)" class="bg-gray-700 text-white text-sm px-3 py-1 rounded-full">Rate this course</button>
+          <div class="rating-stars hidden mt-2 space-x-1">
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+            <span onclick="rateStar(this)">&#9733;</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="text-center mt-10">
+      <a href="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID/viewform" target="_blank" class="inline-block bg-purple-600 text-white text-lg font-semibold px-6 py-3 rounded-full hover:bg-purple-700 transition">
+        Register Now (₹200)
+      </a>
+      <p class="text-xs mt-2 text-gray-500">(Amount not shown to users on site)</p>
+    </div>
+
+    <!-- Learner Count -->
+    <div id="learner-count" class="text-center mt-6 hidden">
+      <p class="text-sm font-medium text-green-700">🎓 <span id="count-value">0</span> students enrolled</p>
+    </div>
+  </main>
+
+  <footer class="text-center py-4 text-sm text-gray-500">
+    &copy; 2025 CSE SkillUp. All rights reserved.
+  </footer>
+
+  <script>
+    function showRating(button) {
+      const stars = button.nextElementSibling;
+      stars.classList.toggle("hidden");
+    }
+
+    function rateStar(star) {
+      const allStars = star.parentElement.querySelectorAll("span");
+      let activate = true;
+      allStars.forEach((s) => {
+        s.classList.remove("active");
+      });
+      for (let s of allStars) {
+        s.classList.add("active");
+        if (s === star) break;
+      }
+    }
+
+    // Dummy simulation for learner count (replace with actual logic if connected to backend)
+    const enrolled = 17; // Simulated value (change dynamically later)
+    if (enrolled >= 5) {
+      document.getElementById("learner-count").classList.remove("hidden");
+      document.getElementById("count-value").textContent = enrolled;
+    }
+  </script>
+</body>
+</html>
